@@ -1,15 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginForm from '../pages/loginForm';
 import SignupForm from '../pages/signupForm';
-import Dashboard from '../pages/dashboard';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
-import Sidebar from '../components/sidebar';
+// import Dashboard from '../pages/dashboard';
+// import Navbar from '../components/navbar';
+// import Footer from '../components/footer';
+// import Sidebar from '../components/sidebar';
 
-function AppRoutes() {
+export default function AppRoutes() {
     return (
       <Router>
-      <div className="wrapper">
+         <Routes>
+            <Route path="/login" component={LoginForm} />
+            <Route  path="/signup" component={SignupForm} />
+          </Routes>
+      {/* <div className="wrapper">
         <Sidebar />
         <div className="content">
           <Navbar />
@@ -20,9 +24,7 @@ function AppRoutes() {
           </Routes>
           <Footer />
         </div>
-      </div>
+      </div> */}
     </Router>
     );
   }
-  
-  export default AppRoutes;
