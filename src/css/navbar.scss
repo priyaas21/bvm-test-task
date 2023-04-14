@@ -1,0 +1,57 @@
+$navbar-height: 80px;
+$navbar-bg-color: #333;
+$navbar-text-color: #fff;
+
+.navbar {
+  height: $navbar-height;
+  background-color: $navbar-bg-color;
+  color: $navbar-text-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .navbar-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+
+    li {
+      list-style: none;
+      margin-right: 20px;
+
+      a {
+        color: $navbar-text-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+
+    .navbar-links {
+      flex-direction: column;
+      margin-top: 20px;
+
+      li {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
