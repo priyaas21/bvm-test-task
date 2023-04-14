@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <nav>
+    <nav style={{backgroundColor: 'pink'}}>
       <ul>
         <li>
           <Link to="/dashboard">Dashboard</Link>

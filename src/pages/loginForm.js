@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { validateEmail, validatePassword } from '../utils';
+import '../css/login.scss';
 
 function LoginForm() {
     const [loginData, setLoginData] = useState({
@@ -37,7 +38,9 @@ function LoginForm() {
   };
   
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="login-container">
+    <form className="login-form" onSubmit={handleSubmit}>
+    <h2 className="login-form__title">Login</h2>
       {formErrors.length > 0 && (
         <div className="alert alert-danger" role="alert">
           <ul>
@@ -51,7 +54,8 @@ function LoginForm() {
         <label htmlFor="email">Email</label>
         <input
           type="email"
-          className="form-control"
+          // className="form-control"
+          className="login-form__input"
           id="email"
           value={loginData.email}
           onChange={(e) => handleChange('email', e.target.value)}
@@ -61,16 +65,20 @@ function LoginForm() {
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          className="form-control"
+          // className="form-control"
+          className="login-form__input"
           id="password"
           value={loginData.password}
           onChange={(e) => handleChange('password', e.target.value)}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" 
+      // className="btn btn-primary" 
+      className="login-form__button">
         Sign In
       </button>
     </form>
+    </div>
   );
 }
 
