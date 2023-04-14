@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 function Sidebar() {
   const loggedInUser = useSelector(state => state.loggedInUser);
-  console.log('====sidebar====', loggedInUser)
   return (
     <div className="App">
       <div className="sidebar">

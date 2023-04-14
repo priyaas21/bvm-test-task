@@ -10,7 +10,6 @@ function LoginForm() {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.loggedInUser);
   const userList = useSelector((state) => state.userList);
-console.log('===', userData, '----', userList)
     const [loginData, setLoginData] = useState({
         email: '',
         password: '',

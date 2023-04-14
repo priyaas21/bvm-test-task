@@ -8,7 +8,6 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const loggedInUser = useSelector(state => state.loggedInUser);
-    console.log('=====nav=====', loggedInUser)
 
     const onLogout = () => {
         dispatch(logout());
