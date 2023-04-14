@@ -4,6 +4,7 @@ import { validateEmail, validateName, validatePassword, validateProfileImage } f
 import { useDispatch, useSelector } from 'react-redux'
 import { addNewUser } from '../reducers/userSlice';
 import '../css/signup.scss';
+import Button from '../commonComponents/primaryButton';
 
 function SignupForm() {
   const dispatch = useDispatch()
@@ -117,9 +118,7 @@ function SignupForm() {
           onChange={(e) => handleChange('profileImage', e.target.files[0])}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
-        Sign Up
-      </button>
+      <Button type="submit" title='Sign Up' className='btn btn-primary' onClickHandler={null} />
       <p className="my-1">
           Already have an account? <Link to="/login">Sign In</Link>
         </p>

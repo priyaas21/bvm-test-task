@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { validateEmail, validatePassword } from '../utils';
 import '../css/login.scss';
+import Button from '../commonComponents/primaryButton';
 
 function LoginForm() {
     const [loginData, setLoginData] = useState({
@@ -72,11 +73,7 @@ function LoginForm() {
           onChange={(e) => handleChange('password', e.target.value)}
         />
       </div>
-      <button type="submit" 
-      // className="btn btn-primary" 
-      className="login-form__button">
-        Sign In
-      </button>
+      <Button title='Sign In' type='submit' className='login-form__button' onClickHandler={null} />
     </form>
     </div>
   );
