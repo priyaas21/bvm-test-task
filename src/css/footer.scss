@@ -1,0 +1,40 @@
+$footer-bg-color: #333;
+$footer-text-color: #fff;
+$footer-padding: 20px;
+
+.footer {
+  background-color: $footer-bg-color;
+  color: $footer-text-color;
+  padding: $footer-padding;
+  text-align: center;
+
+  .footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    a {
+      color: $footer-text-color;
+      text-decoration: none;
+      margin: 0 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    .footer-links {
+      flex-direction: column;
+
+      a {
+        margin: 10px 0;
+      }
+    }
+  }
+}
