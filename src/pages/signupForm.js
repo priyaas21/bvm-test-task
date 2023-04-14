@@ -8,8 +8,8 @@ import Button from '../commonComponents/primaryButton';
 
 function SignupForm() {
   const dispatch = useDispatch()
-  const apiData = useSelector((state) => state.root);
-  console.log('==================', apiData)
+  const userData = useSelector((state) => state.users.userList);
+  console.log(userData)
   const [user, setUser] = useState({
     name: '',
     email: '',
