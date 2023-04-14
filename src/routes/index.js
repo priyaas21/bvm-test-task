@@ -10,9 +10,9 @@ export default function AppRoutes() {
     return (
       <Router>
       <div className="wrapper">
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className="content">
-          <Navbar />
+          {/* <Navbar /> */}
           <Routes>
             <Route exact path="/login" element={<LoginForm />} />
             <Route exact path="/signup" element={<SignupForm />} />

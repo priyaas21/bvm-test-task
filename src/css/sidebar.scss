@@ -1,0 +1,32 @@
+$sidebar-bg-color: #333;
+.sidebar {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $sidebar-bg-color;
+    color: #fff;
+  
+    .nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      li {
+        margin-bottom: 10px;
+  
+        a {
+          display: block;
+          padding: 10px;
+          color: #fff;
+          text-decoration: none;
+  
+          &:hover {
+            background-color: #666;
+          }
+        }
+      }
+    }
+  }
+  
