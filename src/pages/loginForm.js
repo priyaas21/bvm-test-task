@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { validateEmail, validatePassword } from '../utils';
 import '../css/login.scss';
 import Button from '../commonComponents/primaryButton';
@@ -42,15 +42,6 @@ function LoginForm() {
     <div className="login-container">
     <form className="login-form" onSubmit={handleSubmit}>
     <h2 className="login-form__title">Login</h2>
-      {formErrors.length > 0 && (
-        <div className="alert alert-danger" role="alert">
-          <ul>
-            {formErrors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        </div>
-      )}
       <div className="form-group">
         <label htmlFor="email">Email</label>
         <input
@@ -74,7 +65,19 @@ function LoginForm() {
         />
       </div>
       <Button title='Sign In' type='submit' className='login-form__button' onClickHandler={null} />
+      <p className="my-1">
+          Create an account? <Link to="/signup">Sign Up</Link>
+      </p>
     </form>
+    {formErrors.length > 0 && (
+        <div className="alert alert-danger error-class" role="alert">
+          <ul>
+            {formErrors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

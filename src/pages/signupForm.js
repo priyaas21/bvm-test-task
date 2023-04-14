@@ -59,15 +59,6 @@ function SignupForm() {
     <div className="container">
     <form onSubmit={handleSubmit}>
     <h2>Sign Up</h2>
-      {formErrors?.length > 0 && (
-        <div className="alert alert-danger" role="alert">
-          <ul>
-            {formErrors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        </div>
-      )}
       <div className="form-group">
         <label htmlFor="name">Name</label>
         <input
@@ -123,6 +114,15 @@ function SignupForm() {
           Already have an account? <Link to="/login">Sign In</Link>
         </p>
     </form>
+    {formErrors?.length > 0 && (
+        <div className="alert alert-danger error-class" role="alert">
+          <ul>
+            {formErrors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
