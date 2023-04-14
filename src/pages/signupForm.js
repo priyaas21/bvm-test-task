@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { validateEmail, validateName, validatePassword, validateProfileImage } from '../utils';
 import { useDispatch, useSelector } from 'react-redux'
-import { addUserData } from '../reducers/userSlice'
+import { addNewUser } from '../reducers/userSlice';
+import '../css/signup.scss';
 
 function SignupForm() {
   const dispatch = useDispatch()
-  const apiData = useSelector((state) => state.root.users);
+  const apiData = useSelector((state) => state.root);
   console.log('==================', apiData)
   const [user, setUser] = useState({
     name: '',
@@ -44,12 +45,9 @@ function SignupForm() {
     if (errors?.length) setFormErrors(errors);
     else {
       try {
-        dispatch(addUserData(JSON.stringify(user)))
-        // if (response.ok) {
-        //   setFormErrors([])
-        //   navigate('/login');
-        // }
-        // else setFormErrors(data.errors);
+        dispatch(addNewUser(JSON.stringify(user)))
+        setFormErrors([]);
+        navigate('/login');
       } catch(err) {
         console.log('Error - ', err)
       }
@@ -57,7 +55,9 @@ function SignupForm() {
   };
 
   return (
+    <div className="container">
     <form onSubmit={handleSubmit}>
+    <h2>Sign Up</h2>
       {formErrors?.length > 0 && (
         <div className="alert alert-danger" role="alert">
           <ul>
@@ -71,7 +71,7 @@ function SignupForm() {
         <label htmlFor="name">Name</label>
         <input
           type="text"
-          className="form-control"
+          // className="form-control"
           id="name"
           value={user.name}
           onChange={(e) => handleChange('name', e.target.value)}
@@ -81,7 +81,7 @@ function SignupForm() {
         <label htmlFor="email">Email</label>
         <input
           type="email"
-          className="form-control"
+          // className="form-control"
           id="email"
           value={user.email}
           onChange={(e) => handleChange('email', e.target.value)}
@@ -91,7 +91,7 @@ function SignupForm() {
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          className="form-control"
+          // className="form-control"
           id="password"
           value={user.password}
           onChange={(e) => handleChange('password', e.target.value)}
@@ -101,7 +101,7 @@ function SignupForm() {
         <label htmlFor="confirm-password">Confirm Password</label>
         <input
           type="password"
-          className="form-control"
+          // className="form-control"
           id="confirm-password"
           value={user.confirmPassword}
           onChange={(e) => handleChange('confirmPassword', e.target.value)}
@@ -112,7 +112,7 @@ function SignupForm() {
         <input
           type="file"
           accept="image/jpeg,image/png"
-          className="form-control-file"
+          // className="form-control-file"
           id="profile-image"
           onChange={(e) => handleChange('profileImage', e.target.files[0])}
         />
@@ -120,7 +120,11 @@ function SignupForm() {
       <button type="submit" className="btn btn-primary">
         Sign Up
       </button>
+      <p className="my-1">
+          Already have an account? <Link to="/login">Sign In</Link>
+        </p>
     </form>
+    </div>
   );
 }
 

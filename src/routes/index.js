@@ -18,7 +18,7 @@ export default function AppRoutes() {
             <Route exact path="/signup" element={<SignupForm />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
     </Router>

@@ -14,12 +14,17 @@ $primary-color: #007bff;
   @include center;
 }
 
+.form-group {
+  width: 100%;
+}
+
 .login-form {
   width: 400px;
   padding: 30px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  align-items: flex-start;
   
   @media screen and (max-width: 480px) {
     width: 100%;
