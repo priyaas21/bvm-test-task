@@ -1,6 +1,7 @@
 $navbar-height: 80px;
-$navbar-bg-color: #333;
+$navbar-bg-color: #336;
 $navbar-text-color: #fff;
+$sidebar-width: 200px;
 
 .navbar {
   height: $navbar-height;
@@ -10,11 +11,16 @@ $navbar-text-color: #fff;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: $sidebar-width;
+  width: calc(100% - ($sidebar-width + 2%));
 
   .navbar-brand {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     text-decoration: none;
+    color: #fff;
   }
 
   .navbar-links {

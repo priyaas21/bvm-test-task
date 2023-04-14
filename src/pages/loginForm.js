@@ -3,8 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { validateEmail, validatePassword } from '../utils';
 import '../css/login.scss';
 import Button from '../commonComponents/primaryButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../reducers/userSlice';
 
 function LoginForm() {
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.loggedInUser);
+  const userList = useSelector((state) => state.userList);
+console.log('===', userData, '----', userList)
     const [loginData, setLoginData] = useState({
         email: '',
         password: '',
@@ -27,15 +33,9 @@ function LoginForm() {
 
     // Display errors, or submit form
     if (errors.length) setFormErrors(errors);
-    else {
-      // Submit form
-      const formData = new FormData();
-      formData.append('email', email);
-      formData.append('password', password);
+    else dispatch(login(loginData));
 
-      if(errors.length > 0) setFormErrors(errors);
-      else navigate('/dashboard');
-    }
+    if(Object.keys(userData).length > 0) navigate('/dashboard');
   };
   
   return (

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { validateEmail, validateName, validatePassword, validateProfileImage } from '../utils';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { addNewUser } from '../reducers/userSlice';
 import '../css/signup.scss';
 import Button from '../commonComponents/primaryButton';
 
 function SignupForm() {
   const dispatch = useDispatch()
-  const userData = useSelector((state) => state.users.userList);
+  const userData = useSelector((state) => state.userList);
   console.log(userData)
   const [user, setUser] = useState({
     name: '',
@@ -46,7 +46,7 @@ function SignupForm() {
     if (errors?.length) setFormErrors(errors);
     else {
       try {
-        dispatch(addNewUser(JSON.stringify(user)))
+        dispatch(addNewUser(user))
         setFormErrors([]);
         navigate('/login');
       } catch(err) {
