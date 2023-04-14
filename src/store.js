@@ -1,10 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit'
-import root from './reducers'
-import { addUserData } from './actions'
+import { configureStore  } from '@reduxjs/toolkit'
+import rootReducer  from './reducers'
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export default configureStore({
-  reducer: {
-    root
-  },
-//   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(addUserData)
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 })
